@@ -19,3 +19,7 @@ def parse_json_from_website(pegel_location):
         data.write(beautified_json)
         
         print(beautified_json)
+
+# user input
+location = input("Bitte den Ort des gewünschten Pegels eingeben: ")
+parse_json_from_website(location)
