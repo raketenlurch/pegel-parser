@@ -14,6 +14,8 @@ def parse_json_from_website(pegel_location):
         
         data_json = json.loads(response.read())
         
-        print(json.dumps(data_json, indent=4, sort_keys=True))
+        beautified_json = json.dumps(data_json, indent=4, sort_keys=True)
         
-parse_json_from_website("Köln")
+        data.write(beautified_json)
+        
+        print(beautified_json)
