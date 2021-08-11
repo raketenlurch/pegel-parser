@@ -1,3 +1,4 @@
+from json.decoder import JSONDecoder
 from urllib.request import urlopen 
 import urllib.parse
 import json
@@ -19,6 +20,18 @@ def download_pegel_locations():
         data.write(beautified_json)
         
         print("Anzahl der Messstationen:", len(data_json))
+
+# def filter_by_location(file, location):
+def filter_by_location():
+    with open("pegel_location.json", "r") as data:
+        data_json = json.load(data)
+
+        decoded_json = JSONDecoder.decode(data_json)
+
+        print(decoded_json)
+
+        #for i in data_json:
+        #    print(i)
 
 def parse_json_from_website(pegel_location):
     with open("data.json", "w") as data:
@@ -42,6 +55,6 @@ def extract_values_from_json(file):
     pass
 
 # user input
-show_pegel_locations()
+filter_by_location()
 #location = input("Bitte den Ort des gewünschten Pegels eingeben: ")
 #parse_json_from_website(location)
